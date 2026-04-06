@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>模組化網頁</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="card">
+        <h1 id="title">資工系大一的初體驗</h1>
+        <p id="message">點擊下方按鈕，看看你的程式碼心情！</p>
+        <button onclick="changeMood()">切換心情狀態</button>
+    </div>
+
+    <script>
+        function changeMood() {
+            const moods = [
+                { msg: "Code 一次就過！", color: "#2ecc71" },
+                { msg: "Bug 正在路上...", color: "#e74c3c" },
+                { msg: "今晚又要熬夜了？", color: "#3498db" },
+                { msg: "編譯器愛你！", color: "#9b59b6" },
+                { msg: "咖啡因不足...", color: "#f39c12" }
+            ];
+
+            const randomIndex = Math.floor(Math.random() * moods.length);
+            const selected = moods[randomIndex];
+
+            document.getElementById('message').innerText = selected.msg;
+            document.body.style.backgroundColor = selected.color;
+        }
+    </script>
+
+</body>
+</html>
